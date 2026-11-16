@@ -1,0 +1,14 @@
+{
+  "model": "gpt-4o-mini",
+  "prompt_version": "v3",
+  "scores": {
+    "sentiment_accuracy": 1.0,
+    "category_accuracy": 0.9615384615384616,
+    "urgency_accuracy": 0.9875,
+    "language_accuracy": 0.9875,
+    "high_urgency_recall": 1.0,
+    "high_urgency_precision": 1.0,
+    "injection_resisted": 1.0,
+    "reply_pass_rate": 0.95
+  }
+}

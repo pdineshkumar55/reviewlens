@@ -1,0 +1,17 @@
+services:
+  reviewlens:
+    build: .
+    container_name: reviewlens
+    env_file: .env
+    ports:
+      - "127.0.0.1:8611:8501"
+    volumes:
+      - reviewlens-cache:/app/.cache
+      - reviewlens-logs:/app/logs
+    restart: unless-stopped
+    mem_limit: 768m
+    cpus: 1.0
+
+volumes:
+  reviewlens-cache:
+  reviewlens-logs:

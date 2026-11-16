@@ -1,0 +1,17 @@
+repos:
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.17.5
+    hooks:
+      - id: ruff
+  - repo: https://github.com/gitleaks/gitleaks
+    rev: v8.28.0
+    hooks:
+      - id: gitleaks
+  - repo: local
+    hooks:
+      - id: ui-copy
+        name: UI copy check
+        entry: python scripts/check_ui_copy.py
+        language: system
+        pass_filenames: false
+        files: ^(app\.py|ui/|reviewlens/)
