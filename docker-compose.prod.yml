@@ -9,6 +9,14 @@ services:
       - reviewlens-cache:/app/.cache
       - reviewlens-logs:/app/logs
     restart: unless-stopped
+    labels:
+      # Routed by the host's Traefik (docker provider); WebSockets pass through by default.
+      - traefik.enable=true
+      - traefik.http.routers.reviewlens.rule=Host(`reviewlens.dinesh-genai.tech`)
+      - traefik.http.routers.reviewlens.entrypoints=websecure
+      - traefik.http.routers.reviewlens.tls.certresolver=letsencrypt
+      - traefik.http.routers.reviewlens.service=reviewlens
+      - traefik.http.services.reviewlens.loadbalancer.server.port=8501
     mem_limit: 768m
     cpus: 1.0
 

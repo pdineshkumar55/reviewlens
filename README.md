@@ -212,7 +212,7 @@ docker compose -f docker-compose.prod.yml up -d --build   # serves on 127.0.0.1:
 ./deploy.sh                                               # later releases: pull, rebuild, health check
 ```
 
-A reverse proxy (nginx) terminates HTTPS and forwards to `127.0.0.1:8611` with WebSocket headers.
+On the server, Traefik terminates HTTPS (Let's Encrypt) and routes `reviewlens.dinesh-genai.tech` to the container through the labels in `docker-compose.prod.yml`. The app is also bound to `127.0.0.1:8611` for local checks.
 
 ## Project structure
 
